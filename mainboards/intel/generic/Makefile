@@ -1,6 +1,6 @@
 MAJOR ?= 5
-STABLE = $(MAJOR).4
-CONFIG ?= $(MAJOR).4.0
+STABLE = $(MAJOR).15
+CONFIG ?= $(MAJOR).15.0
 default: build
 
 build:
@@ -91,7 +91,7 @@ getfiano:
 	go install github.com/linuxboot/fiano/cmds/utk
 getrom:
 	@echo If you plan to flash to hardware,
-	@echo you will need to get a rom imagei
+	@echo you will need to get a rom image
 	@echo and put it in rom.bin
 	@echo you can get it via wget, flashrom, whatever.
 	@echo If you are not targeting hardware, you can

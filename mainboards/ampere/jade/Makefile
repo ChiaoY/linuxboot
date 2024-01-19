@@ -74,13 +74,13 @@ fetch: getkernel geturoot
 
 getkernel:
 	rm -rf linux
-	git clone --depth=1 -b v5.7 --single-branch https://github.com/torvalds/linux
+	git clone --depth=1 -b v5.15 --single-branch https://github.com/torvalds/linux
 	(cd linux && make mrproper)
 	(cd linux && ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make tinyconfig)
 
 geturoot:
-	go install github.com/u-root/u-root@v0.9.0
-	go get -d github.com/u-root/cpu/...
+	GO111MODULE=off go get -u github.com/u-root/u-root
+	GO111MODULE=off go get -u github.com/u-root/cpu/...
 
 # Serve the combined sshd-kernel and sshd-initramfs image. This includes flashrom
 sshd-pxeserver:
